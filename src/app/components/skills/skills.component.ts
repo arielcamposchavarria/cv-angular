@@ -13,7 +13,9 @@ export class SkillsComponent {
     'Lenguajes: Dart, TypeScript, JavaScript, C#',
   'Frameworks: Flutter, React, NestJS, Angular, ASP.NET Core',
   'Bases de datos: MySQL',
-  'Herramientas: Git, GitHub, Vercel, Render, Railway, AzureDevOps'
+  'Herramientas: Git, GitHub, Vercel, Render, Railway, AzureDevOps',
+  'Idiomas: Español, Ingles: Basico'
+
 
   ];
 }
