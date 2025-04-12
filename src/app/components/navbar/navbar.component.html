@@ -1,4 +1,4 @@
-<nav class="navbar">
+<!-- <nav class="navbar">
     <ul>
       <li><a routerLink="/">Inicio</a></li>
       <li><a routerLink="/about">Sobre mí</a></li>
@@ -6,5 +6,20 @@
       <li><a routerLink="/skills">Habilidades</a></li>
       <li><a routerLink="/contact">Contacto</a></li>
     </ul>
+  </nav> -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">MiCV</div>
+  
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+  
+      <ul [class.active]="menuAbierto">
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/about">Sobre mí</a></li>
+        <li><a routerLink="/projects">Proyectos</a></li>
+        <li><a routerLink="/skills">Habilidades</a></li>
+        <li><a routerLink="/contact">Contacto</a></li>
+      </ul>
+    </div>
   </nav>
   

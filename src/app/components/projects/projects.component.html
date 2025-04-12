@@ -1,14 +1,14 @@
 <section class="projects">
-    <h1>Proyectos</h1>
-  
-    <div class="project-list">
-      <div class="project-card" *ngFor="let project of projects">
+  <h1>Proyectos</h1>
+
+  <div class="project-grid">
+    <div class="project-card" *ngFor="let project of projects">
+      <img [src]="project.vistaPrevia" [alt]="project.nombre" />
+      <div class="card-body">
         <h2>{{ project.nombre }}</h2>
         <p>{{ project.descripcion }}</p>
-        <a [href]="project.enlace" target="_blank" rel="noopener">
-          Ver proyecto 🔗
-        </a>
+        <a [href]="project.enlace" target="_blank" rel="noopener">Ver proyecto</a>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>

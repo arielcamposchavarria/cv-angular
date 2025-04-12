@@ -1,14 +1,11 @@
-<section class="contact">
-    <h1>Contacto</h1>
-    <p>Podés comunicarte conmigo a través de los siguientes medios:</p>
-  
-    <ul>
-      <li *ngFor="let contacto of contactos">
-        <strong>{{ contacto.nombre }}:</strong>
-        <a [href]="contacto.enlace" target="_blank" rel="noopener">
-          {{ contacto.valor }}
-        </a>
-      </li>
-    </ul>
-  </section>
-  
+<div class="contact-card">
+  <h1>Contacto</h1>
+  <p>Puedes contactarme mediante los siguientes enlaces:</p>
+
+  <ul>
+    <li *ngFor="let c of contactos">
+      <img [src]="c.icono" [alt]="c.nombre" />
+      <a [href]="c.enlace" target="_blank">{{ c.valor }}</a>
+    </li>
+  </ul>
+</div>

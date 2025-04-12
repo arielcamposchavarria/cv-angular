@@ -13,12 +13,20 @@ export class ProjectsComponent {
     {
       nombre: 'Sistema ZMTMN usuarios',
       descripcion: 'Apartado de usuarios para el Sistema de Gestion para el departamento Zona Maritimo Terrestre Municipalidad Nicoya.',
+      vistaPrevia: 'https://via.placeholder.com/400x250.png?text=Vista+Prev+Usuarios',
       enlace: 'https://zmtmn-usuarios.vercel.app/'
     },
     {
       nombre: 'Sistema ZMTMN administradores',
       descripcion: 'Apartado de administradores para el Sistema de Gestion para el departamento Zona Maritimo Terrestre Municipalidad Nicoya.',
+      vistaPrevia: 'assets/img/admins.png',
       enlace: 'https://zmtmn-dashboard.vercel.app/'
+    },
+    {
+      nombre: 'Base de datos para un taller',
+      descripcion: 'Base de datos para gestion de un taller con gestion de inventario, pedidos de repuestos, ventas y reparaciones',
+      vistaPrevia: 'assets/img/admins.png',
+      enlace: 'https://github.com/arielcamposchavarria/GestionTaller.git'
     }
   ];
 }

@@ -1,23 +1,49 @@
-.home {
-    padding: 4rem 2rem;
-    text-align: center;
-  
+.home-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 4rem auto;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin-top: 100px;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-  
-    h2 {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #666;
     }
-  
-    p {
+
+    h2 {
       font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
+    }
+
+    p {
+      font-size: 1rem;
     }
   }
-  
+}
