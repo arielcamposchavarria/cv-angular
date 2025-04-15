@@ -14,12 +14,13 @@
       <button class="menu-toggle" (click)="toggleMenu()">☰</button>
   
       <ul [class.active]="menuAbierto">
-        <li><a routerLink="/">Inicio</a></li>
-        <li><a routerLink="/about">Sobre mí</a></li>
-        <li><a routerLink="/projects">Proyectos</a></li>
-        <li><a routerLink="/skills">Habilidades</a></li>
-        <li><a routerLink="/contact">Contacto</a></li>
+        <li><a href="#inicio" (click)="toggleMenu()">Inicio</a></li>
+        <li><a href="#sobre-mi" (click)="toggleMenu()">Sobre mí</a></li>
+        <li><a href="#proyectos" (click)="toggleMenu()">Proyectos</a></li>
+        <li><a href="#habilidades" (click)="toggleMenu()">Habilidades</a></li>
+        <li><a href="#contacto" (click)="toggleMenu()">Contacto</a></li>
       </ul>
     </div>
   </nav>
+  
   

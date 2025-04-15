@@ -1,22 +1,33 @@
-<!-- <section class="home">
-    <h1>Hola, soy Ariel Campos Chavarria</h1>
-    <h2>Estudiante de Ingeniería en Sistemas de Información</h2>
-    <p>
-      Apasionado por la tecnologia y el desarrollo web y móvil. Poseo habilidades en C#, React con TypeScript,
-      HTML, CSS, JavaScript, Dart, bases de datos MySQL, y frameworks como NestJS, Angular, Flutter y ASP.NET.
-      Actualmente cursando el 4° año de carrera en la UNA, con visión de crecer como profesional, aprender nuevas
-      tecnologias y
-      contribuir en proyectos innovadores.
-    </p>
-  </section> -->
-  <section class="home-card">
-    <h1>Hola, soy Ariel Campos Chavarría</h1>
-    <h2>Estudiante de Ingeniería en Sistemas de Información</h2>
-    <p>
-      Apasionado por la tecnología y el desarrollo web y móvil. Poseo habilidades en C#, React con TypeScript,
-      HTML, CSS, JavaScript, Dart, bases de datos MySQL, y frameworks como NestJS, Angular, Flutter y ASP.NET.
-      Actualmente cursando el 4° año de carrera en la UNA, con visión de crecer como profesional, aprender nuevas
-      tecnologías y contribuir en proyectos innovadores.
-    </p>
-  </section>
+<button (click)="generarPDF()">Descargar PDF</button>
+<div id="cv-content">
+<section id="inicio" class="home-card">
   
+  <section id="contacto" class="contact-card">
+    <app-contact></app-contact>
+  </section>
+  <h1>Hola, soy Ariel Campos Chavarría</h1>
+  <h2>Estudiante de Ingeniería en Sistemas de Información</h2>
+  <p>
+    Apasionado por la tecnología y el desarrollo web y móvil. Poseo habilidades en C#, React con TypeScript,
+    HTML, CSS, JavaScript, Dart, bases de datos MySQL, y frameworks como NestJS, Angular, Flutter y ASP.NET.
+    Actualmente cursando el 4° año de carrera en la UNA, con visión de crecer como profesional, aprender nuevas
+    tecnologías y contribuir en proyectos innovadores.
+  </p>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" class="about-card">
+  <app-about></app-about>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="projects-card">
+  <app-projects></app-projects>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades" class="skills-card">
+  <app-skills></app-skills>
+</section>
+</div>
+

@@ -1,10 +1,16 @@
-<section class="skills">
+<section class="skills-card">
   <h1>Habilidades</h1>
-  <div class="skills-grid">
-    <div class="skill-card" *ngFor="let skill of skills">
-      <img [src]="skill.logo" [alt]="skill.nombre" />
-      <span>{{ skill.nombre }}</span>
+
+  <div *ngFor="let categoria of skillsPorCategoria" class="skill-section">
+    <h2>{{ categoria.categoria }}</h2>
+
+    <div class="tech-grid">
+      <div *ngFor="let tech of categoria.tecnologias" class="tech-card">
+        <img [src]="tech.logo" [alt]="tech.nombre" />
+        <h3>{{ tech.nombre }}</h3>
+        <p>{{ tech.descripcion }}</p>
+      </div>
     </div>
   </div>
 </section>
-  
+

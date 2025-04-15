@@ -1,49 +1,113 @@
 .home-card {
   background-color: #fff;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   border-radius: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 4rem auto;
+  max-width: 900px;
+  margin: 2rem auto;
   text-align: center;
-  transition: transform 0.3s ease;
-  margin-top: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #222;
     margin-bottom: 1rem;
+    font-weight: 700;
   }
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #555;
     margin-bottom: 1.5rem;
+    font-weight: 500;
   }
 
   p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: #444;
-    line-height: 1.6;
+    line-height: 1.7;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 
   @media (max-width: 480px) {
-    padding: 1.5rem;
+    padding: 1.25rem;
 
     h1 {
       font-size: 1.5rem;
     }
 
     h2 {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
+  }
+}
+
+.pdf-button {
+  //position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  //margin-top: 400px;
+
+  &:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media (max-width: 600px) {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+// Oculta el botón al imprimir/exportar PDF
+@media print {
+  .pdf-button {
+    display: none !important;
   }
 }
