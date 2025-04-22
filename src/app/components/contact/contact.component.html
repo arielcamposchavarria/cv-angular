@@ -1,10 +1,9 @@
-<div class="contact-card">
-  
+<ul class="contact-card">
+  <li *ngFor="let contacto of contactos">
+    <a [href]="contacto.enlace" target="_blank" rel="noopener">
+      <img [src]="contacto.icono" [alt]="contacto.nombre" />
+      {{ contacto.valor }}
+    </a>
+  </li>
+</ul>
 
-  <ul>
-    <li *ngFor="let c of contactos">
-      <img [src]="c.icono" [alt]="c.nombre" />
-      <a [href]="c.enlace" target="_blank">{{ c.valor }}</a>
-    </li>
-  </ul>
-</div>

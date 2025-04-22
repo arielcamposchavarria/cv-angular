@@ -3,7 +3,9 @@
 
   <div class="project-grid">
     <div class="project-card" *ngFor="let project of projects">
-      <img [src]="project.vistaPrevia" [alt]="project.nombre" />
+      <a [href]="project.vistaPrevia" target="_blank">
+        <img [src]="project.vistaPrevia" [alt]="project.nombre" />
+      </a>
       <div class="card-body">
         <h2>{{ project.nombre }}</h2>
         <p>{{ project.descripcion }}</p>

@@ -30,4 +30,35 @@
   <app-skills></app-skills>
 </section>
 </div>
+<section class="contact-form-section" id="formulario-contacto">
+  <form class="contact-form" (ngSubmit)="enviarMensaje()" #formulario="ngForm">
+    <h2>Puedes escribirme</h2>
+
+    <label>
+      Tu nombre:
+      <input type="text" name="nombre" [(ngModel)]="formData.nombre" required />
+    </label>
+
+    <label>
+      Tu correo:
+      <input type="email" name="email" [(ngModel)]="formData.email" required />
+    </label>
+
+    <label>
+      Tu mensaje:
+      <textarea name="mensaje" [(ngModel)]="formData.mensaje" required></textarea>
+    </label>
+
+    <label>
+      Enviar a:
+      <select name="destinatario" [(ngModel)]="formData.destinatario" required>
+        <option [value]="correos[0]">{{ correos[0] }}</option>
+        <option [value]="correos[1]">{{ correos[1] }}</option>
+      </select>
+    </label>
+
+    <button type="submit" [disabled]="formulario.invalid">Enviar mensaje</button>
+  </form>
+</section>
+
 
