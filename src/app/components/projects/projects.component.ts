@@ -27,6 +27,13 @@ export class ProjectsComponent {
       descripcion: 'Base de datos para gestion de un taller con gestion de inventario, pedidos de repuestos, ventas y reparaciones',
       vistaPrevia: '/img/Captura de pantalla 2025-04-22 105738.png',
       enlace: 'https://github.com/arielcamposchavarria/GestionTaller.git'
+    },
+    {
+      nombre: 'Aplicacion movil para un supermercado 2025',
+      descripcion: 'Flujo de creacion de pedidos, asignar pedidos a un repartidor, gestion de inventario de productos',
+      vistaPrevia: '',
+      enlace: 'https://github.com/DannyJimenezA/aplicacion_abuelos_yupi.git',
+      enlace2: 'https://github.com/DannyJimenezA/Backend-AbuelosYupi.git'
     }
   ];
 }
