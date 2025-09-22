@@ -1,16 +1,39 @@
-<section class="skills-card">
+<section class="skills-3d">
   <h1>Habilidades</h1>
 
+  <!-- Esfera 3D -->
+  <div class="stage">
+    <div
+      class="sphere"
+      [style.transform]="'rotateX(' + angleX + 'deg) rotateY(' + angleY + 'deg)'"
+      (pointerdown)="onPointerDown($event)"
+      (pointermove)="onPointerMove($event)"
+      (pointerup)="onPointerUp()"
+      (pointerleave)="onPointerUp()"
+    >
+      <div
+  class="logo3d"
+  *ngFor="let p of points; let i = index"
+  [style.transform]="'translate3d(' + p.x + 'px,' + p.y + 'px,' + p.z + 'px)'"
+  [style.zIndex]="Math.round(p.z) + 2000"
+  [style.filter]="depthFilter(p.z)"
+>
+  <img [src]="flattened[i].logo" [alt]="flattened[i].nombre" draggable="false"/>
+</div>
+    </div>
+    <button class="floating-btn" (click)="toggleAuto()">
+      {{ autoRotate ? 'Pausar giro' : 'Reanudar giro' }}
+    </button>
+  </div>
+
+  <div class="by-category">
   <div *ngFor="let categoria of skillsPorCategoria" class="skill-section">
     <h2>{{ categoria.categoria }}</h2>
-
-    <div class="tech-grid">
-      <div *ngFor="let tech of categoria.tecnologias" class="tech-card">
-        <img [src]="tech.logo" [alt]="tech.nombre" />
-        <h3>{{ tech.nombre }}</h3>
-        <p>{{ tech.descripcion }}</p>
-      </div>
-    </div>
+    <ul class="tech-list">
+      <li *ngFor="let tech of categoria.tecnologias">
+        {{ tech.nombre }}
+      </li>
+    </ul>
   </div>
+</div>
 </section>
-

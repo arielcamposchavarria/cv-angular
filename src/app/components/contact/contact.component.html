@@ -1,9 +1,17 @@
 <ul class="contact-card">
-  <li *ngFor="let contacto of contactos">
-    <a [href]="contacto.enlace" target="_blank" rel="noopener">
-      <img [src]="contacto.icono" [alt]="contacto.nombre" />
-      {{ contacto.valor }}
+  <li *ngFor="let c of contactos">
+    <a [href]="c.enlace" target="_blank" rel="noopener" [attr.aria-label]="c.nombre">
+      <ng-container [ngSwitch]="c.iconType">
+        <!-- SVG inline: hereda currentColor (perfecto para dark mode) -->
+        <svg *ngSwitchCase="'svg'" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="display:block">
+          <path fill="currentColor" [attr.d]="c.svgPath"></path>
+        </svg>
+
+        <!-- Imagen normal para los demás -->
+        <img *ngSwitchDefault [src]="c.icono!" [alt]="c.nombre" width="20" height="20" />
+      </ng-container>
+
+      <span>{{ c.valor }}</span>
     </a>
   </li>
 </ul>
-

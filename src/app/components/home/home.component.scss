@@ -1,144 +1,118 @@
-.home-card {
-  background-color: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
-  margin: 2rem auto;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+:root{
+  --maxw: 1100px;
+  --pad: clamp(1rem, 2.4vw, 1.75rem);
+  --radius: 16px;
+
+  /* paleta la tomas de styles.scss (light/dark) */
+  /* --bg, --surface, --surface-2, --text, --muted, --stroke, --accent,
+     --chip-bg, --btn-bg, --shadow, --brand1, --brand2 */
+}
+
+/* altura real de tu navbar (base para anchor-fix y menú móvil) */
+:root { --nav-h: 64px; }
+
+.anchor-fix{
+  display: block;
   position: relative;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  }
-
-  h1 {
-    font-size: 2.2rem;
-    color: #222;
-    margin-bottom: 1rem;
-    font-weight: 700;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-    color: #555;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.7;
-    max-width: 90%;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-
-    h1 {
-      font-size: 1.75rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 1.25rem;
-
-    h1 {
-      font-size: 1.5rem;
-    }
-
-    h2 {
-      font-size: 1rem;
-    }
-
-    p {
-      font-size: 0.95rem;
-    }
-  }
+  top: calc(-1 * var(--nav-h) - 12px);
+  height: 0;
 }
 
+html { scroll-behavior: smooth; }
+body { color: var(--text); background: var(--bg); }
 
-
-.contact-form-section {
-  padding: 3rem 2rem;
-  background-color: #fff;
-  margin-top: 4rem;
-}
-
-.contact-form {
-  max-width: 600px;
+.cv .section{
+  max-width: var(--maxw);
   margin: 0 auto;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; // 🧙 transición suave
+  padding: var(--pad);
+}
 
-  &:hover {
-    transform: translateY(-6px) scale(1.02); // 👈 movimiento sutil + zoom
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15); // 👈 sombra más intensa
-  }
-  h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #222;
-  }
+/* HERO */
+.hero{
+  padding-top: clamp(1rem, 3vw, 2rem);
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+}
+.grad{
+  background-image: linear-gradient(90deg, var(--brand1), var(--brand2));
+  background-clip: text;
+  // -webkit-background-clip: text;
+  // color: transparent;
+  // -webkit-text-fill-color: transparent;
+  display: inline-block;
+  line-height: 1.2;
+}
+.title{ font-size: clamp(1.75rem, 3.2vw, 2.25rem); line-height:1.2; margin: .25rem 0; font-weight:700; }
+.subtitle{ font-size: clamp(1rem, 1.6vw, 1.125rem); color: var(--muted); margin: 0 0 .75rem; font-weight:600; }
+.lead{ color: var(--muted); font-size: clamp(.98rem,1.4vw,1.05rem); line-height:1.6; max-width:62ch; margin:0 0 1rem; }
 
-  label {
-    display: block;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    color: #333;
+.badges{
+  list-style:none; padding:0; margin:.25rem 0 1rem;
+  display:flex; flex-wrap:wrap; gap:.5rem .6rem;
 
-    input,
-    textarea,
-    select {
-      width: 100%;
-      margin-top: 0.5rem;
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      height: 120px;
-      resize: vertical;
-    }
-  }
-
-  button {
-    display: block;
-    margin: 1rem auto 0;
-    padding: 0.7rem 1.5rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    font-weight: bold;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #0056b3;
-    }
-
-    &:disabled {
-      background-color: #aaa;
-      cursor: not-allowed;
-    }
+  li{
+    padding:.28rem .55rem; border-radius:999px; font-size:.8rem;
+    background: var(--chip-bg);
+    color: var(--text);
+    border:1px solid var(--stroke);
   }
 }
 
+.cta-row{ display:flex; gap:.75rem; flex-wrap:wrap; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:.5rem; border-radius:10px; padding:.6rem .9rem;
+  text-decoration:none; font-weight:600; font-size:.94rem;
+  border:1px solid var(--stroke); color:var(--text); background: var(--btn-bg);
+  svg{ width:18px; height:18px; fill: currentColor; }
+  transition: transform .15s ease, box-shadow .25s ease, background .2s ease;
+  &:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+}
+.btn.primary{
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  color:#fff; border-color: transparent;
+}
+.btn.ghost{}
+
+/* CONTACTO ARRIBA */
+.contact-top{
+  margin: 0 0 1rem;
+  background: var(--surface);
+  border:1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: .75rem 1rem;
+  box-shadow: var(--shadow);
+}
+.contact-top :where(ul,ol){
+  list-style:none; padding:0; margin:0; display:grid; gap:.6rem;
+}
+@media (min-width: 700px){
+  .contact-top :where(ul,ol){ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 1000px){
+  .contact-top :where(ul,ol){ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+.contact-top li{ display:flex; align-items:center; gap:.5rem; font-size:.95rem; }
+.contact-top a{ color: var(--accent); text-decoration:none; }
+.contact-top a:hover{ text-decoration: underline; }
+
+/* Secciones como “cards” */
+.section > app-about,
+.section > app-projects,
+.section > app-skills{
+  display:block;
+  background: var(--surface);
+  border:1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: var(--shadow);
+}
+
+/* Back to top */
+.to-top{
+  position: fixed; right:1rem; bottom:1rem; width:40px; height:40px; border-radius:12px;
+  border:1px solid var(--stroke); background: var(--btn-bg); color: var(--text);
+  display:grid; place-items:center; text-decoration:none; box-shadow: var(--shadow);
+  transition: transform .15s ease;
+  &:hover{ transform: translateY(-3px); }
+}

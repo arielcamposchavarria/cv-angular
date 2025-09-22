@@ -1,64 +1,86 @@
 .about-card {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 4rem auto;
-  text-align: left;
-  transition: transform 0.3s ease;
-  margin-top: 100px;
+  --radius: 18px;
 
-  &:hover {
-    transform: translateY(-5px);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  max-width: 1100px;
+  margin: 2rem auto;
+  backdrop-filter: blur(8px);
+}
+
+.about-head {
+  text-align: center;
+  margin-bottom: 1.25rem;
+
+  h1 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 0 0 .5rem; }
+  .lead { color: var(--muted); font-size: clamp(.98rem, 1.6vw, 1.05rem); max-width: 70ch; margin: 0 auto; }
+}
+
+.about-grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
+
+.col h2 {
+  font-size: 1.1rem;
+  margin: .5rem 0 1rem;
+  color: var(--text);
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem;
+  position: relative;
+  border-left: 2px solid var(--stroke);
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 1.2rem 1rem;
+
+  &:last-child { padding-bottom: .2rem; }
+}
+.tl-dot {
+  position: absolute;
+  left: -9px;
+  top: .2rem;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border: 2px solid var(--surface); /* aro interno acorde al tema */
+  border-radius: 50%;
+  /* halo suave usando el acento */
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent), transparent 65%);
+}
+.tl-content h3 { margin: 0 0 .15rem; font-size: 1rem; color: var(--text); }
+.tl-content p  { margin: 0 0 .15rem; color: var(--muted); }
+.tl-meta { display: inline-block; font-size: .85rem; color: var(--muted); }
+
+/* Certificaciones (simple, sin tarjetas) */
+.cert-list.simple {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .6rem;
+
+  li {
+    background: var(--chip-bg);
+    border: 1px solid var(--stroke);
+    border-radius: 12px;
+    padding: .65rem .75rem;
+    color: var(--text);
   }
 
-  h1 {
-    font-size: 2rem;
-    color: #222;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #444;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  ul {
-    padding-left: 1.2rem;
-    list-style: disc;
-
-    li {
-      font-size: 1.05rem;
-      color: #555;
-      margin-bottom: 0.8rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 1.5rem;
-
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-    }
-
-    p,
-    li {
-      font-size: 1rem;
-    }
-  }
+  strong { color: var(--text); }
 }

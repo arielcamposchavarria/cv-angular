@@ -1,75 +1,129 @@
-.navbar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: #222;
-  padding: 1rem;
-  margin-bottom: 6px;
+:root{
+  --nav-h: 64px;
 
-  .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  /* paleta base (light) */
+  --glass: rgba(255,255,255,.65);
+  --stroke: rgba(0,0,0,.08);
+  --text: #0f172a;
+  --accent: #3b82f6;
+  --btn-bg: #ffffff;
+  --bg: #ffffff;
 
-  .logo {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-
-    li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-
-      &:hover {
-        color: #f0c040;
-      }
-    }
-  }
-
-  // RESPONSIVE
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-    }
-
-    ul {
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background-color: #222;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
-      display: none;
-
-      &.active {
-        display: flex;
-      }
-    }
-  }
+  /* derivados */
+  --menu-mobile-bg: rgba(255,255,255,.95);
+  --menu-toggle-bg: rgba(255,255,255,.6);
+  --menu-toggle-bg-hover: rgba(255,255,255,.9);
+  --bar-color: #111827;
+  --shadow: 0 10px 24px rgba(2,6,23,.06);
 }
+
+/* Dark */
+:root[data-theme="dark"]{
+  --glass: rgba(15,23,42,.6);
+  --stroke: rgba(255,255,255,.08);
+  --text: #e5e7eb;
+  --accent: #60a5fa;
+  --btn-bg: #0b1220;
+  --bg: #0b1220;
+
+  --menu-mobile-bg: rgba(15,23,42,.95);
+  --menu-toggle-bg: rgba(15,23,42,.6);
+  --menu-toggle-bg-hover: rgba(15,23,42,.9);
+  --bar-color: #e5e7eb;
+  --shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+/* aplica fondo global */
+html, body { background: var(--bg); }
+
+.navbar{
+  position: sticky; top: 0; z-index: 60;
+  backdrop-filter: blur(10px);
+  background: var(--glass);
+  border-bottom: 1px solid var(--stroke);
+  transition: background .25s ease, box-shadow .25s ease;
+  padding-top: clamp(1rem, 6vw, 1rem);
+  padding-bottom: clamp(1rem, 8vw, 1rem);
+}
+.navbar.scrolled{
+  background: var(--glass);
+  box-shadow: var(--shadow);
+}
+
+.navbar-container{
+  max-width: 1100px; margin: 0 auto;
+  height: var(--nav-h);
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 1rem;
+  padding: 0 1rem;
+}
+
+.logo{
+  font-weight: 800; letter-spacing: .2px; text-decoration: none;
+  color: var(--text); font-size: 1.05rem;
+}
+
+/* Links */
+ul{ list-style: none; margin: 0; padding: 0; display: flex; gap: .75rem; }
+ul a{
+  position: relative;
+  display: inline-block; padding: .45rem .6rem;
+  text-decoration: none; color: var(--text); font-weight: 600; border-radius: 8px;
+  transition: color .2s ease;
+}
+ul a::after{
+  content: ""; position: absolute; left: .6rem; right: .6rem; bottom: .35rem;
+  height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+ul a:hover::after{ transform: scaleX(1); }
+ul a.active{ color: var(--accent); }
+ul a.active::after{ transform: scaleX(1); }
+
+/* Hamburger */
+.menu-toggle{
+  width: 40px; height: 40px; border: 1px solid var(--stroke); border-radius: 10px;
+  background: var(--menu-toggle-bg); display: none; place-items: center;
+  cursor: pointer; padding: 0; transition: background .2s ease;
+}
+.menu-toggle:hover{ background: var(--menu-toggle-bg-hover); }
+.menu-toggle .bar{
+  display: block; width: 20px; height: 2px; background: var(--bar-color); border-radius: 2px;
+  position: relative; transition: transform .25s ease, opacity .2s ease;
+}
+.menu-toggle .bar + .bar{ margin-top: 5px; }
+
+/* Mobile layout */
+@media (max-width: 900px){
+  .navbar-container{ grid-template-columns: auto auto; }
+  .menu-toggle{ display: grid; justify-self: end; }
+
+  /* muestra el switch de tema junto a la hamburguesa si lo usas */
+  .theme-toggle{ order: 3; justify-self: end; }
+
+  ul{
+    position: fixed; inset: var(--nav-h) 0 auto 0; height: auto;
+    background: var(--menu-mobile-bg); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--stroke);
+    box-shadow: var(--shadow);
+    transform: translateY(-110%); transition: transform .3s ease;
+    padding: .75rem; flex-direction: column; gap: .25rem;
+  }
+  ul.active{ transform: translateY(0); }
+
+  /* Animación hamburguesa → X cuando menú abierto */
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(2){ opacity: 0; }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* Botón de tema (si lo tienes en el navbar) */
+.theme-toggle{
+  display:inline-flex; align-items:center; gap:.5rem;
+  border:1px solid var(--stroke); background:var(--btn-bg); color:var(--text);
+  padding:.4rem .6rem; border-radius:10px; font-weight:600; cursor:pointer;
+  transition: background .2s ease, transform .15s ease, box-shadow .25s ease;
+}
+.theme-toggle:hover{ transform: translateY(-1px); box-shadow: 0 8px 16px rgba(0,0,0,.08); }
+.theme-toggle .icon{ line-height:1; }
+.theme-toggle .lbl{ font-size:.9rem; }

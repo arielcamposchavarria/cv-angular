@@ -1,34 +1,35 @@
-<!-- <nav class="navbar">
-    <ul>
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/about">Sobre mí</a></li>
-      <li><a routerLink="/projects">Proyectos</a></li>
-      <li><a routerLink="/skills">Habilidades</a></li>
-      <li><a routerLink="/contact">Contacto</a></li>
+<nav class="navbar" [class.scrolled]="scrolled">
+  <div class="navbar-container">
+    <a class="logo" href="#inicio">Mi portafolio</a>
+
+    
+
+    <button
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuAbierto"
+      aria-label="Abrir menú"
+      aria-controls="navlinks"
+    >
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <ul id="navlinks" [class.active]="menuAbierto">
+      <li><a [class.active]="activeId==='inicio'"      (click)="goTo('inicio')">Inicio</a></li>
+      <li><a [class.active]="activeId==='sobre-mi'"    (click)="goTo('sobre-mi')">Sobre mí</a></li>
+      <li><a [class.active]="activeId==='proyectos'"   (click)="goTo('proyectos')">Proyectos</a></li>
+      <li><a [class.active]="activeId==='habilidades'" (click)="goTo('habilidades')">Habilidades</a></li>
+      <li><a [class.active]="activeId==='contacto'"    (click)="goTo('contacto')">Contacto</a></li>
     </ul>
-  </nav> -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="logo">MiCV</div>
-  
-      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
-  
-      <ul [class.active]="menuAbierto">
-        <li><a href="#inicio" (click)="toggleMenu()">Inicio</a></li>
-        <li><a href="#sobre-mi" (click)="toggleMenu()">Sobre mí</a></li>
-        <li><a href="#proyectos" (click)="toggleMenu()">Proyectos</a></li>
-        <li><a href="#habilidades" (click)="toggleMenu()">Habilidades</a></li>
-        <li><a
-  href="/Ariel Campos Chavarria.pdf"
-  download="Ariel Campos Chavarria.pdf"
-  class="nav-link"
-  target="_blank"
-  rel="noopener"
->
-  Descargar CV
-</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  
+    <button class="theme-toggle"
+            type="button"
+            (click)="toggleTheme()"
+            [attr.aria-label]="theme.current === 'dark' ? 'Cambiar a claro' : 'Cambiar a oscuro'">
+      <span class="icon" aria-hidden="true">
+        <!-- simple: emoji; o puedes poner un SVG -->
+        {{ theme.current === 'dark' ? '☀️' : '🌙' }}
+      </span>
+      <span class="lbl">{{ theme.current === 'dark' ? 'Claro' : 'Oscuro' }}</span>
+    </button>
+  </div>
+</nav>

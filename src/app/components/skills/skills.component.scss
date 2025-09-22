@@ -1,81 +1,114 @@
-.skills-card {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  margin: 4rem auto;
+/* Contenedor general, fondo transparente, sin tarjetas ni marcos */
+.skills-3d {
+  padding: 3rem 1rem;
   text-align: center;
 
   h1 {
     font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #222;
+    margin-bottom: 1.5rem;
+    color: var(--text);
   }
+}
+
+/* Escenario con perspectiva para el 3D */
+.stage {
+  position: relative;
+  margin: 0 auto 2rem auto;
+  width: min(520px, 90vw);
+  height: min(520px, 90vw);
+  perspective: 1000px; /* clave para 3D */
+  touch-action: none;   /* para drags en móviles */
+}
+
+/* La esfera: preserva 3D y se rota completa (auto + manual) */
+.sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  cursor: grab;
+  will-change: transform;
+  transition: transform 0.02s linear;
+
+  &:active { cursor: grabbing; }
+}
+
+/* Cada logo “flota” en 3D */
+.logo3d {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  translate: -50% -50%;
+  will-change: transform, filter;
+  user-select: none;
+
+  img {
+    width: clamp(36px, 6vw, 64px);
+    height: clamp(36px, 6vw, 64px);
+    object-fit: contain;
+    /* sombra suave dependiente del tema */
+    filter: drop-shadow(0 2px 6px color-mix(in oklab, var(--text) 25%, transparent));
+    pointer-events: none;
+  }
+}
+
+/* Botón flotante */
+.floating-btn {
+  position: absolute;
+  inset: auto 0 -2.5rem 0;
+  margin: auto;
+  width: max-content;
+  padding: .6rem 1rem;
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--text);
+  font-size: .9rem;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background .2s ease, transform .15s ease, box-shadow .25s ease;
+
+  &:hover{
+    transform: translateY(-2px);
+    background: color-mix(in oklab, var(--accent) 12%, var(--btn-bg));
+    box-shadow: 0 10px 18px color-mix(in oklab, var(--accent) 35%, transparent);
+  }
+}
+
+/* Listado por categorías (opcional, minimal sin marcos) */
+.by-category {
+  max-width: 1000px;
+  margin: 0 auto;
 
   .skill-section {
-    margin-bottom: 3rem;
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #333;
-      text-align: left;
-      border-left: 4px solid #007bff;
-      padding-left: 0.75rem;
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .tech-card {
-      background-color: #f9f9f9;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-      }
-
-      img {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 0.5rem;
-      }
-
-      h3 {
-        margin: 0.5rem 0 0.25rem;
-        font-size: 1.1rem;
-        color: #222;
-      }
-
-      p {
-        font-size: 0.95rem;
-        color: #555;
-      }
-    }
+    margin: 1.5rem 0;
   }
 
-  @media (max-width: 600px) {
-    padding: 1.5rem;
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+    text-align: left;
+    color: var(--text);
+  }
 
-    .tech-grid {
-      grid-template-columns: 1fr;
-    }
+  .tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.25rem;
 
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
+    li {
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--chip-bg);
+      border: 1px solid var(--stroke);
+      padding: .3rem .6rem;
+      border-radius: .5rem;
+      white-space: nowrap;
     }
   }
 }

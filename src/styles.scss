@@ -1,5 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
-html {
-    scroll-behavior: smooth;
-  }
-  
+/* LIGHT */
+:root{
+  --bg: #ffffff;
+  --surface: #ffffff;         /* tarjetas */
+  --surface-2: #fafbff;       /* fondos suaves/hero */
+  --text: #0f172a;
+  --muted: #64748b;           /* subtítulos / párrafos suaves */
+  --stroke: #e5e7eb;          /* bordes */
+  --accent: #3b82f6;
+  --chip-bg: #f3f4f6;         /* tags/chips */
+  --btn-bg: #ffffff;
+  --shadow: 0 6px 20px rgba(2,6,23,.06);
+}
+
+/* DARK */
+:root[data-theme="dark"]{
+  --bg: #0b1220;
+  --surface: #0f172a;
+  --surface-2: #0b1220;
+  --text: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: #223047;
+  --accent: #60a5fa;
+  --chip-bg: #111827;
+  --btn-bg: #0b1220;
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
+/* base */
+html, body{ background: var(--bg); color: var(--text); }
+a{ color: var(--accent); }

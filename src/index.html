@@ -6,6 +6,17 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+  (function () {
+    try {
+      const LS_KEY = 'theme';
+      const saved = localStorage.getItem(LS_KEY);
+      const prefers = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const theme = saved || prefers;
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch {}
+  })();
+</script>
 </head>
 <body>
   <app-root></app-root>
