@@ -1,76 +1,48 @@
-<!-- 
-<div id="cv-content">
-<section id="inicio" class="home-card">
-  
-  <section id="contacto" class="contact-card">
-    <app-contact></app-contact>
-  </section>
-  <h1>Hola, soy Ariel Campos Chavarría</h1>
-  <h2>Estudiante de Ingeniería en Sistemas de Información</h2>
-  <p>
-    Apasionado por la tecnología y el desarrollo web y móvil. Poseo habilidades en C#, React con TypeScript,
-    HTML, CSS, JavaScript, Dart, bases de datos MySQL, y frameworks como NestJS, Angular, Flutter y ASP.NET.
-    Actualmente cursando el 4° año de carrera en la UNA, con visión de crecer como profesional, aprender nuevas
-    tecnologías y contribuir en proyectos innovadores.
-  </p>
-</section>
-<section id="sobre-mi" class="about-card">
-  <app-about></app-about>
-</section>
-<section id="proyectos" class="projects-card">
-  <app-projects></app-projects>
-</section>
-<section id="habilidades" class="skills-card">
-  <app-skills></app-skills>
-</section>
-</div> -->
 <div id="cv-content" class="cv">
   <section id="inicio" class="section hero">
-
-    <!-- CONTACTO ARRIBA (como al inicio) -->
     <span id="contacto" class="anchor-fix" aria-hidden="true"></span>
 
-<section class="contact-top">
-  <app-contact></app-contact>
-</section>
+    <section class="contact-top">
+      <app-contact></app-contact>
+    </section>
 
-    <!-- TÍTULOS + RESUMEN -->
-    <h1 class="title">Hola, soy <span class="grad">Ariel Campos Chavarría</span></h1>
-    <h2 class="subtitle">Estudiante de Ingeniería en Sistemas de Información</h2>
+    <!-- Título con nombre destacado -->
+    <h1 class="title">
+      {{ 'home.hello' | translate }}
+      <span class="grad">Ariel Campos Chavarría</span>
+    </h1>
 
-    <p class="lead">
-      Apasionado por la tecnología y el desarrollo web y móvil. Experiencia con
-      <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>,
-      <strong>php</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>,
-      <strong>Flutter</strong>, <strong>ASP.NET</strong> y <strong>MySQL</strong>. Actualmente cursando el 4° año en la UNA.
-    </p>
+    <h2 class="subtitle">{{ 'home.subtitle' | translate }}</h2>
 
+    <!-- Párrafo con HTML (negritas de tecnologías) -->
+    <p class="lead" [innerHTML]="'home.leadHtml' | translate"></p>
+
+    <!-- Chips/badges traducidos desde un array -->
     <ul class="badges">
-      <li>Full-stack</li><li>REST APIs</li><li>SQL</li><li>Móvil</li>
+      <li *ngFor="let chip of ('home.chips' | translate)">{{ chip }}</li>
     </ul>
 
     <div class="cta-row">
       <a href="/cv.pdf" target="_blank" rel="noopener" class="btn ghost">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14v-2H5v2zM11 4h2v7h3l-4 4-4-4h3V4z"/></svg>
-        Descargar CV
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 20h14v-2H5v2zM11 4h2v7h3l-4 4-4-4h3V4z"/>
+        </svg>
+        {{ 'home.downloadCv' | translate }}
       </a>
     </div>
   </section>
 
-  <!-- SOBRE MÍ -->
   <section id="sobre-mi" class="section">
     <app-about></app-about>
   </section>
 
-  <!-- PROYECTOS -->
   <section id="proyectos" class="section">
     <app-projects></app-projects>
   </section>
 
-  <!-- HABILIDADES -->
   <section id="habilidades" class="section">
     <app-skills></app-skills>
   </section>
 
-  <a href="#inicio" class="to-top" aria-label="Volver arriba">↑</a>
+  <a href="#inicio" class="to-top" [attr.aria-label]="'home.backToTop' | translate">↑</a>
 </div>

@@ -1,0 +1,133 @@
+{
+  "home": {
+    "hello": "Hola, soy",
+    "subtitle": "Estudiante de Ingeniería en Sistemas de Información",
+    "leadHtml": "Apasionado por la tecnología y el desarrollo web y móvil. Experiencia con <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>php</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> y <strong>MySQL</strong>. Actualmente cursando el 4° año en la UNA.",
+    "chips": ["Full-stack", "REST APIs", "SQL", "Móvil"],
+    "downloadCv": "Descargar CV",
+    "backToTop": "Volver arriba"
+  },
+  
+  "about": {
+    "title": "Sobre mí",
+    "leadHtml": "Estudiante de Ingeniería en Sistemas de Información en la Universidad Nacional de Costa Rica (UNA), actualmente en cuarto año. Me apasiona crear soluciones tecnológicas con impacto real en las personas.",
+    "educationTitle": "Formación académica",
+    "education": [
+      {
+        "institution": "Universidad Nacional (UNA)",
+        "degree": "Ingeniería en Sistemas de Información",
+        "period": "2022 – presente"
+      },
+      {
+        "institution": "Liceo de Belén",
+        "degree": "Bachillerato en Educación Media",
+        "period": "2021"
+      }
+    ],
+    "certsTitle": "Certificaciones",
+    "certs": [
+      {
+        "name": "Scrum Fundamentals Certified (SFC)",
+        "issuer": "CertiProf",
+        "year": "2024"
+      },
+      {
+        "name": "Campamento de Informática Forense",
+        "issuer": "Academia Progenios"
+      }
+    ]
+  },
+  "nav": {
+    "logo": "Mi portafolio",
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "theme": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "toLight": "Cambiar a claro",
+      "toDark": "Cambiar a oscuro"
+    }
+  },
+   "projects": {
+    "title": "Proyectos",
+    "items": [
+      {
+        "nombre": "Lanaku – Gestión Hotelera (UNA)",
+        "fecha": "2025 – presente",
+        "descripcion": "Backend académico para la gestión de Front Desk, Reservas y Housekeeping. Control de estadías, estados de limpieza, asignación de habitaciones y flujo de reservas.",
+        "enlace": "https://backendhotelt.onrender.com/",
+        "github": "https://github.com/Josue2406/BackendHotelT.git",
+        "tags": ["NestJS", "TypeScript", "REST API"]
+      },
+      {
+        "nombre": "Sistema ZMTMN – Usuarios",
+        "fecha": "2024 – 2025",
+        "descripcion": "Portal ciudadano para trámites de Zona Marítimo Terrestre de la Municipalidad de Nicoya.",
+        "enlace": "https://zmtmn-usuarios.municoya.go.cr/",
+        "github": "https://github.com/DeptoZMTMN/Frontend-Usuarios.git",
+        "tags": ["React", "TypeScript", "Vite"]
+      },
+      {
+        "nombre": "Sistema ZMTMN – Administradores",
+        "fecha": "2024 – 2025",
+        "descripcion": "Dashboard administrativo para la gestión de solicitudes de Zona Marítimo Terrestre.",
+        "enlace": "https://zmtmn-admin.municoya.go.cr/",
+        "github": "https://github.com/DeptoZMTMN/Frontend-Administrativo.git",
+        "tags": ["React", "TypeScript", "Vite"]
+      },
+      {
+        "nombre": "BD Taller Mecánico",
+        "fecha": "2024",
+        "descripcion": "Modelo y scripts de base de datos para inventario, pedidos de repuestos, ventas y reparaciones.",
+        "enlace": "",
+        "github": "https://github.com/arielcamposchavarria/GestionTaller.git",
+        "tags": ["MySQL", "Modelo ER", "Consultas SQL"]
+      },
+      {
+        "nombre": "App supermercado (móvil)",
+        "fecha": "2025",
+        "descripcion": "Pedidos, asignación a repartidor y gestión de inventario. Front + Backend.",
+        "enlace": "",
+        "github": "https://github.com/DannyJimenezA/aplicacion_abuelos_yupi.git",
+        "tags": ["Flutter", "Dart", "Backend"]
+      }
+    ],
+    "labels": {
+      "noDesc": "Sin descripción disponible.",
+      "demo": "Ver demo",
+      "repo": "Ver repo",
+      "desc": "Ver descripción",
+      "back": "Volver"
+    },
+    "aria": {
+      "openDemo": "Abrir demo de {{name}}",
+      "openRepo": "Abrir repositorio de {{name}}",
+      "seeDesc": "Ver descripción de {{name}}",
+      "back": "Volver a la portada de {{name}}"
+    }
+  },
+   "skills": {
+    "title": "Habilidades",
+    "buttons": {
+      "pause": "Pausar giro",
+      "resume": "Reanudar giro"
+    },
+    "cat": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "databases": "Bases de datos",
+      "tools": "Herramientas de desarrollo",
+      "mobile": "Móvil"
+    }
+  },
+    "lang": {
+      "label": "Idioma",
+      "es": "Español",
+      "en": "Inglés",
+      "pt": "Portugués"
+    }
+
+}

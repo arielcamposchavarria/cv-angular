@@ -5,18 +5,21 @@ import {
   OnDestroy,
   Inject,
   NgZone,
-  PLATFORM_ID
+  PLATFORM_ID,
+  HostListener
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Tech { nombre: string; logo: string; descripcion?: string; }
-interface Category { categoria: string; tecnologias: Tech[]; }
+type CategoryKey = 'frontend'|'backend'|'databases'|'tools'|'mobile';
+interface Category { key: CategoryKey; tecnologias: Tech[]; }
 interface Point3D { x: number; y: number; z: number; }
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
@@ -24,51 +27,50 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
   // ------- datos -------
   skillsPorCategoria: Category[] = [
     {
-      categoria: 'Frontend',
+      key: 'frontend',
       tecnologias: [
-        { nombre: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-        { nombre: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { nombre: 'HTML', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { nombre: 'CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { nombre: 'Angular',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+        { nombre: 'React',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { nombre: 'HTML',       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { nombre: 'CSS',        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
         { nombre: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
         { nombre: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
       ]
     },
     {
-      categoria: 'Backend',
+      key: 'backend',
       tecnologias: [
-        { nombre: 'C#', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
-        { nombre: '.NET', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg' },
+        { nombre: 'C#',     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
+        { nombre: '.NET',   logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg' },
         { nombre: 'NestJS', logo: 'https://nestjs.com/img/logo-small.svg' },
-        //{ nombre: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
         { nombre: 'NodeJS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg' },
-        { nombre: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
-        { nombre: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
-        { nombre: 'Laravel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg' }
+        { nombre: 'Postman',logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+        { nombre: 'PHP',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
+        { nombre: 'Laravel',logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg' }
       ]
     },
     {
-      categoria: 'Bases de datos',
+      key: 'databases',
       tecnologias: [
-        { nombre: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        { nombre: 'MySQL',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
         { nombre: 'SQL Server', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg' },
-        { nombre: 'MariaDb', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original-wordmark.svg' }
+        { nombre: 'MariaDb',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original-wordmark.svg' }
       ]
     },
     {
-      categoria: 'Herramientas de desarrollo',
+      key: 'tools',
       tecnologias: [
-        { nombre: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-        { nombre: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-        { nombre: 'Azure DevOps', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg' },
-        { nombre: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }
+        { nombre: 'Git',         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+        { nombre: 'GitHub',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+        { nombre: 'Azure DevOps',logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg' },
+        { nombre: 'Docker',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }
       ]
     },
     {
-      categoria: 'Móvil',
+      key: 'mobile',
       tecnologias: [
         { nombre: 'Flutter', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
-        { nombre: 'Dart', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' }
+        { nombre: 'Dart',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' }
       ]
     }
   ];
@@ -78,7 +80,7 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
   points: Point3D[] = [];
   Math = Math;               // para usar Math.round en el template
 
-  radius = 200;              // radio (px)
+  radius = 200;              // radio (px) - se recalcula según viewport
   autoRotate = true;         // giro automático
   angleX = 0;                // rotación actual X (deg)
   angleY = 0;                // rotación actual Y (deg)
@@ -97,16 +99,13 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // a) aplanar logos
     this.flattened = this.skillsPorCategoria.flatMap(c => c.tecnologias);
-    // b) posiciones estilo “Fibonacci sphere”
+    this.setRadiusFromViewport();
     this.points = this.fibonacciSphere(this.flattened.length, this.radius);
-    // c) NO iniciar animación aquí (para evitar SSR error)
   }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      // correr la animación fuera de Angular para no triggerear CD
       this.ngZone.runOutsideAngular(() => {
         this.loop(0);
       });
@@ -119,13 +118,31 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const old = this.radius;
+    this.setRadiusFromViewport();
+    if (this.radius !== old) {
+      // Recalcular posiciones con el nuevo radio
+      this.points = this.fibonacciSphere(this.flattened.length, this.radius);
+    }
+  }
+
+  private setRadiusFromViewport() {
+    // Radios más pequeños en pantallas chicas (mejor FPS)
+    if (!isPlatformBrowser(this.platformId)) return;
+    const vw = Math.min(window.innerWidth, window.innerHeight);
+    this.radius = vw >= 900 ? 220 : vw >= 600 ? 180 : 140;
+  }
+
   private loop = (ts: number) => {
     const dt = Math.min(32, ts - this.lastTs);
     this.lastTs = ts;
 
     // giro automático
     if (this.autoRotate && !this.dragging) {
-      this.angleY += 0.02 * dt;
+      this.angleY += 0.02 * dt; // ~0.64deg/s
     }
 
     // inercia post-arrastre
@@ -141,7 +158,7 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
     // límites de inclinación en X
     this.angleX = Math.max(-80, Math.min(80, this.angleX));
 
-    // agenda siguiente frame SOLO en navegador
+    // siguiente frame en navegador
     if (typeof requestAnimationFrame !== 'undefined') {
       this.rafId = requestAnimationFrame(this.loop);
     }

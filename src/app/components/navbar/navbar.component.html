@@ -1,35 +1,86 @@
 <nav class="navbar" [class.scrolled]="scrolled">
   <div class="navbar-container">
-    <a class="logo" href="#inicio">Mi portafolio</a>
-
-    
+    <a class="logo" href="#inicio">{{ 'nav.logo' | translate }}</a>
 
     <button
       class="menu-toggle"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuAbierto"
-      aria-label="Abrir menú"
-      aria-controls="navlinks"
-    >
+      aria-label="Menu"
+      aria-controls="navlinks">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
     <ul id="navlinks" [class.active]="menuAbierto">
-      <li><a [class.active]="activeId==='inicio'"      (click)="goTo('inicio')">Inicio</a></li>
-      <li><a [class.active]="activeId==='sobre-mi'"    (click)="goTo('sobre-mi')">Sobre mí</a></li>
-      <li><a [class.active]="activeId==='proyectos'"   (click)="goTo('proyectos')">Proyectos</a></li>
-      <li><a [class.active]="activeId==='habilidades'" (click)="goTo('habilidades')">Habilidades</a></li>
-      <li><a [class.active]="activeId==='contacto'"    (click)="goTo('contacto')">Contacto</a></li>
+      <li><a [class.active]="activeId==='inicio'"      (click)="goTo('inicio')">{{ 'nav.home'     | translate }}</a></li>
+      <li><a [class.active]="activeId==='sobre-mi'"    (click)="goTo('sobre-mi')">{{ 'nav.about'    | translate }}</a></li>
+      <li><a [class.active]="activeId==='proyectos'"   (click)="goTo('proyectos')">{{ 'nav.projects' | translate }}</a></li>
+      <li><a [class.active]="activeId==='habilidades'" (click)="goTo('habilidades')">{{ 'nav.skills'   | translate }}</a></li>
+      <li><a [class.active]="activeId==='contacto'"    (click)="goTo('contacto')">{{ 'nav.contact'  | translate }}</a></li>
     </ul>
-    <button class="theme-toggle"
-            type="button"
-            (click)="toggleTheme()"
-            [attr.aria-label]="theme.current === 'dark' ? 'Cambiar a claro' : 'Cambiar a oscuro'">
-      <span class="icon" aria-hidden="true">
-        <!-- simple: emoji; o puedes poner un SVG -->
-        {{ theme.current === 'dark' ? '☀️' : '🌙' }}
-      </span>
-      <span class="lbl">{{ theme.current === 'dark' ? 'Claro' : 'Oscuro' }}</span>
-    </button>
+
+    <!-- Acciones a la derecha: tema + idioma -->
+    <div class="right-actions">
+      <button
+        class="theme-toggle"
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="(theme.current === 'dark' ? 'nav.theme.toLight' : 'nav.theme.toDark') | translate">
+        <span class="icon" aria-hidden="true">{{ theme.current === 'dark' ? '☀️' : '🌙' }}</span>
+        <span class="lbl">{{ (theme.current === 'dark' ? 'nav.theme.light' : 'nav.theme.dark') | translate }}</span>
+      </button>
+
+      <div class="lang-select" [class.open]="showLang" [attr.aria-label]="'lang.label' | translate">
+  <button
+  class="lang-trigger"
+  type="button"
+  (click)="showLang = !showLang"
+  [attr.aria-expanded]="showLang"
+  aria-haspopup="listbox"
+  [attr.aria-label]="'lang.' + currentLang | translate">
+
+  <img class="lang-img"
+       [src]="flagSrc(currentLang)"
+       [srcset]="flagSrcSet(currentLang)"
+       width="18" height="14"
+       alt="" aria-hidden="true" decoding="async" loading="lazy" />
+
+  <span class="lang-code">{{ currentLang.toUpperCase() }}</span>
+
+  <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M7 10l5 5 5-5z"/>
+  </svg>
+</button>
+
+
+  @if (showLang) {
+  <ul class="lang-menu" role="listbox">
+    <li role="option" [attr.aria-selected]="currentLang==='es'">
+      <button class="lang-item" type="button" (click)="setLang('es'); showLang=false">
+        <img class="flag" [src]="flagSrc('es')" [srcset]="flagSrcSet('es')" width="18" height="14"
+             alt="" aria-hidden="true" decoding="async" loading="lazy" />
+        <span class="name">{{ 'lang.es' | translate }}</span>
+      </button>
+    </li>
+
+    <li role="option" [attr.aria-selected]="currentLang==='en'">
+      <button class="lang-item" type="button" (click)="setLang('en'); showLang=false">
+        <img class="flag" [src]="flagSrc('en')" [srcset]="flagSrcSet('en')" width="18" height="14"
+             alt="" aria-hidden="true" decoding="async" loading="lazy" />
+        <span class="name">{{ 'lang.en' | translate }}</span>
+      </button>
+    </li>
+
+    <li role="option" [attr.aria-selected]="currentLang==='pt'">
+      <button class="lang-item" type="button" (click)="setLang('pt'); showLang=false">
+        <img class="flag" [src]="flagSrc('pt')" [srcset]="flagSrcSet('pt')" width="18" height="14"
+             alt="" aria-hidden="true" decoding="async" loading="lazy" />
+        <span class="name">{{ 'lang.pt' | translate }}</span>
+      </button>
+    </li>
+  </ul>
+  }
+</div>
+    </div>
   </div>
 </nav>

@@ -1,5 +1,5 @@
 <section class="skills-3d">
-  <h1>Habilidades</h1>
+  <h1>{{ 'skills.title' | translate }}</h1>
 
   <!-- Esfera 3D -->
   <div class="stage">
@@ -12,28 +12,29 @@
       (pointerleave)="onPointerUp()"
     >
       <div
-  class="logo3d"
-  *ngFor="let p of points; let i = index"
-  [style.transform]="'translate3d(' + p.x + 'px,' + p.y + 'px,' + p.z + 'px)'"
-  [style.zIndex]="Math.round(p.z) + 2000"
-  [style.filter]="depthFilter(p.z)"
->
-  <img [src]="flattened[i].logo" [alt]="flattened[i].nombre" draggable="false"/>
-</div>
+        class="logo3d"
+        *ngFor="let p of points; let i = index"
+        [style.transform]="'translate3d(' + p.x + 'px,' + p.y + 'px,' + p.z + 'px)'"
+        [style.zIndex]="Math.round(p.z) + 2000"
+        [style.filter]="depthFilter(p.z)"
+      >
+        <img [src]="flattened[i].logo" [alt]="flattened[i].nombre" draggable="false" />
+      </div>
     </div>
+
     <button class="floating-btn" (click)="toggleAuto()">
-      {{ autoRotate ? 'Pausar giro' : 'Reanudar giro' }}
+      {{ autoRotate ? ('skills.buttons.pause' | translate) : ('skills.buttons.resume' | translate) }}
     </button>
   </div>
 
   <div class="by-category">
-  <div *ngFor="let categoria of skillsPorCategoria" class="skill-section">
-    <h2>{{ categoria.categoria }}</h2>
-    <ul class="tech-list">
-      <li *ngFor="let tech of categoria.tecnologias">
-        {{ tech.nombre }}
-      </li>
-    </ul>
+    <div *ngFor="let categoria of skillsPorCategoria" class="skill-section">
+      <h2>{{ ('skills.cat.' + categoria.key) | translate }}</h2>
+      <ul class="tech-list">
+        <li *ngFor="let tech of categoria.tecnologias">
+          {{ tech.nombre }}
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </section>

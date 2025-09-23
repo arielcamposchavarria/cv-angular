@@ -5,6 +5,7 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { ContactComponent } from '../contact/contact.component';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core'; // 
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -14,7 +15,9 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ProjectsComponent,
     SkillsComponent,
-    ContactComponent
+    ContactComponent,
+    TranslateModule //
+
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

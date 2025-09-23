@@ -1,12 +1,12 @@
 <section class="projects">
-  <h1>Proyectos</h1>
+  <h1>{{ 'projects.title' | translate }}</h1>
 
   <div class="project-grid">
     <article
       class="card"
-      *ngFor="let p of projects; let i = index"
-      [class.is-flipped]="p.flipped"
-      [attr.aria-live]="'polite'"
+      *ngFor="let p of ('projects.items' | translate); let i = index"
+      [class.is-flipped]="flipped[i]"
+      aria-live="polite"
     >
       <div class="card-inner">
         <!-- Frente -->
@@ -16,7 +16,6 @@
             <span class="date">{{ p.fecha }}</span>
           </header>
 
-          <!-- TAGS en la vista resumida -->
           <ul class="tags-front" *ngIf="p.tags?.length">
             <li *ngFor="let t of p.tags">{{ t }}</li>
           </ul>
@@ -29,8 +28,8 @@
               [href]="p.enlace"
               target="_blank"
               rel="noopener"
-              [attr.aria-label]="'Abrir demo de ' + p.nombre"
-              title="Ver demo"
+              [attr.aria-label]="'projects.aria.openDemo' | translate:{name: p.nombre}"
+              [attr.title]="'projects.labels.demo' | translate"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
@@ -45,8 +44,8 @@
               [href]="p.github"
               target="_blank"
               rel="noopener"
-              [attr.aria-label]="'Abrir repositorio de ' + p.nombre"
-              title="Ver repo"
+              [attr.aria-label]="'projects.aria.openRepo' | translate:{name: p.nombre}"
+              [attr.title]="'projects.labels.repo' | translate"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.01c-3.22.7-3.9-1.4-3.9-1.4-.53-1.35-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.74 1.26 3.41.96.1-.76.41-1.26.74-1.55-2.57-.29-5.28-1.29-5.28-5.73 0-1.27.46-2.31 1.2-3.12-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.2 1.19a11.12 11.12 0 0 1 5.83 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.58.23 2.75.11 3.04.75.81 1.2 1.85 1.2 3.12 0 4.45-2.72 5.43-5.31 5.71.42.36.8 1.07.8 2.17v3.22c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"></path>
@@ -58,8 +57,8 @@
               type="button"
               class="icon-btn"
               (click)="toggleFlip(i)"
-              [attr.aria-label]="'Ver descripción de ' + p.nombre"
-              title="Ver descripción"
+              [attr.aria-label]="'projects.aria.seeDesc' | translate:{name: p.nombre}"
+              [attr.title]="'projects.labels.desc' | translate"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M10 17l5-5-5-5v3H3v4h7v3z"></path>
@@ -76,15 +75,17 @@
             <span class="date">{{ p.fecha }}</span>
           </header>
 
-          <p class="desc">{{ p.descripcion || 'Sin descripción disponible.' }}</p>
+          <p class="desc">
+            {{ p.descripcion || ('projects.labels.noDesc' | translate) }}
+          </p>
 
           <div class="actions back-actions">
             <button
               type="button"
               class="icon-btn"
               (click)="toggleFlip(i)"
-              [attr.aria-label]="'Volver a la portada de ' + p.nombre"
-              title="Volver"
+              [attr.aria-label]="'projects.aria.back' | translate:{name: p.nombre}"
+              [attr.title]="'projects.labels.back' | translate"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 7l-5 5 5 5v-3h7v-4h-7V7z"></path>
@@ -98,8 +99,8 @@
               [href]="p.enlace"
               target="_blank"
               rel="noopener"
-              [attr.aria-label]="'Abrir demo de ' + p.nombre"
-              title="Demo"
+              [attr.aria-label]="'projects.aria.openDemo' | translate:{name: p.nombre}"
+              [attr.title]="'projects.labels.demo' | translate"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"></path>
@@ -113,8 +114,8 @@
               [href]="p.github"
               target="_blank"
               rel="noopener"
-              [attr.aria-label]="'Abrir repositorio de ' + p.nombre"
-              title="Repo"
+              [attr.aria-label]="'projects.aria.openRepo' | translate:{name: p.nombre}"
+              [attr.title]="'projects.labels.repo' | translate"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.01c-3.22.7-3.9-1.4-3.9-1.4-.53-1.35-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.74 1.26 3.41.96.1-.76.41-1.26.74-1.55-2.57-.29-5.28-1.29-5.28-5.73 0-1.27.46-2.31 1.2-3.12-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.2 1.19a11.12 11.12 0 0 1 5.83 0c2.22-1.5 3.2-1.19 3.2-1.19.63 1.58.23 2.75.11 3.04.75.81 1.2 1.85 1.2 3.12 0 4.45-2.72 5.43-5.31 5.71.42.36.8 1.07.8 2.17v3.22c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"></path>

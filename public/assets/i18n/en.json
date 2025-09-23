@@ -1,0 +1,133 @@
+{
+  "home": {
+    "hello": "Hi, I’m",
+    "subtitle": "Information Systems Engineering student",
+    "leadHtml": "Passionate about technology and web/mobile development. Experience with <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>PHP</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> and <strong>MySQL</strong>. Currently in the 4th year at UNA.",
+    "chips": ["Full-stack", "REST APIs", "SQL", "Mobile"],
+    "downloadCv": "Download CV",
+    "backToTop": "Back to top"
+  },
+  
+  "about": {
+    "title": "About me",
+    "leadHtml": "Information Systems Engineering student at the National University of Costa Rica (UNA), currently in the fourth year. I enjoy building technology solutions that have real impact on people.",
+    "educationTitle": "Education",
+    "education": [
+      {
+        "institution": "National University (UNA)",
+        "degree": "B.Sc. in Information Systems Engineering",
+        "period": "2022 – present"
+      },
+      {
+        "institution": "Liceo de Belén",
+        "degree": "High School Diploma",
+        "period": "2021"
+      }
+    ],
+    "certsTitle": "Certifications",
+    "certs": [
+      {
+        "name": "Scrum Fundamentals Certified (SFC)",
+        "issuer": "CertiProf",
+        "year": "2024"
+      },
+      {
+        "name": "Digital Forensics Bootcamp",
+        "issuer": "Academia Progenios"
+      }
+    ]
+  },
+   "nav": {
+    "logo": "My portfolio",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "toLight": "Switch to light",
+      "toDark": "Switch to dark"
+    }
+  },
+   "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "nombre": "Lanaku – Hotel Management (UNA)",
+        "fecha": "2025 – present",
+        "descripcion": "Academic backend for Front Desk, Reservations and Housekeeping. Stays, cleaning states, room assignment and reservation flow.",
+        "enlace": "https://backendhotelt.onrender.com/",
+        "github": "https://github.com/Josue2406/BackendHotelT.git",
+        "tags": ["NestJS", "TypeScript", "REST API"]
+      },
+      {
+        "nombre": "ZMTMN System – Citizens",
+        "fecha": "2024 – 2025",
+        "descripcion": "Citizen portal for Maritime–Terrestrial Zone procedures of the Municipality of Nicoya.",
+        "enlace": "https://zmtmn-usuarios.municoya.go.cr/",
+        "github": "https://github.com/DeptoZMTMN/Frontend-Usuarios.git",
+        "tags": ["React", "TypeScript", "Vite"]
+      },
+      {
+        "nombre": "ZMTMN System – Admin",
+        "fecha": "2024 – 2025",
+        "descripcion": "Administrative dashboard to manage requests of the Maritime–Terrestrial Zone.",
+        "enlace": "https://zmtmn-admin.municoya.go.cr/",
+        "github": "https://github.com/DeptoZMTMN/Frontend-Administrativo.git",
+        "tags": ["React", "TypeScript", "Vite"]
+      },
+      {
+        "nombre": "Car Workshop DB",
+        "fecha": "2024",
+        "descripcion": "Database model and scripts for inventory, parts orders, sales and repairs.",
+        "enlace": "",
+        "github": "https://github.com/arielcamposchavarria/GestionTaller.git",
+        "tags": ["MySQL", "ER Model", "SQL Queries"]
+      },
+      {
+        "nombre": "Grocery App (mobile)",
+        "fecha": "2025",
+        "descripcion": "Orders, driver assignment and inventory management. Front + Backend.",
+        "enlace": "",
+        "github": "https://github.com/DannyJimenezA/aplicacion_abuelos_yupi.git",
+        "tags": ["Flutter", "Dart", "Backend"]
+      }
+    ],
+    "labels": {
+      "noDesc": "No description available.",
+      "demo": "View demo",
+      "repo": "View repo",
+      "desc": "View description",
+      "back": "Back"
+    },
+    "aria": {
+      "openDemo": "Open demo of {{name}}",
+      "openRepo": "Open repository of {{name}}",
+      "seeDesc": "See description of {{name}}",
+      "back": "Back to front of {{name}}"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "buttons": {
+      "pause": "Pause rotation",
+      "resume": "Resume rotation"
+    },
+    "cat": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "databases": "Databases",
+      "tools": "Developer tools",
+      "mobile": "Mobile"
+    }
+  },
+    "lang": {
+      "label": "Language",
+      "es": "Spanish",
+      "en": "English",
+      "pt": "Portuguese"
+    }
+
+}
