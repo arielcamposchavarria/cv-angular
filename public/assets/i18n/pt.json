@@ -1,7 +1,7 @@
 {
   "home": {
     "hello": "Olá, sou",
-    "subtitle": "Estudante de Engenharia de Sistemas de Informação",
+    "subtitle": "Engenheiro de Software   |   Desenvolvedor Full-stack",
     "leadHtml": "Apaixonado por tecnologia e desenvolvimento web e mobile. Experiência com <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>PHP</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> e <strong>MySQL</strong>. Atualmente no 4º ano na UNA.",
     "chips": ["Full-stack", "REST APIs", "SQL", "Mobile"],
     "downloadCv": "Baixar CV",
