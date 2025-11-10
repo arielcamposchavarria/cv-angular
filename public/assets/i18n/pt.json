@@ -55,7 +55,7 @@
     "items": [
       {
         "nombre": "ChatMessage – Mensagens em Tempo Real",
-        "fecha": "2024",
+        "fecha": "2025",
         "descripcion": "Aplicação de chat em tempo real com CI/CD completo. Configuração de pipelines com GitHub Actions, análise estática de código e monitoramento automatizado. Integração com Auth0 para autenticação segura.",
         "enlace": "https://chatmessage-q0jz.onrender.com/",
         "github": "https://github.com/Josue2406/ChatMessage",
@@ -63,7 +63,7 @@
       },
       {
         "nombre": "Lanaku – Gestão Hoteleira (UNA)",
-        "fecha": "2025 – presente",
+        "fecha": "Julho 2025 – Novembro 2025",
         "descripcion": "Backend acadêmico para Front Desk, Reservas e Housekeeping. Hospedagens, estados de limpeza, alocação de quartos e fluxo de reservas.",
         "enlace": "https://backendhotelt.onrender.com/",
         "github": "https://github.com/Josue2406/BackendHotelT.git",
