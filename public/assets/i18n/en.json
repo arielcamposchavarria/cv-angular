@@ -2,7 +2,7 @@
   "home": {
     "hello": "Hi, I’m",
     "subtitle": "Software Engineer   |   Full-stack Developer",
-    "leadHtml": "Passionate about technology and web/mobile development. Experience with <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>PHP</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> and <strong>MySQL</strong>. Currently in the 4th year at UNA.",
+    "leadHtml": "Passionate about technology and web/mobile development with proven experience delivering real-world solutions. Proficient in <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>PHP</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> and <strong>MySQL</strong>. Focused on building scalable and impactful applications.",
     "chips": ["Full-stack", "REST APIs", "SQL", "Mobile"],
     "downloadCv": "Download CV",
     "backToTop": "Back to top"
@@ -10,13 +10,13 @@
   
   "about": {
     "title": "About me",
-    "leadHtml": "Information Systems Engineering student at the National University of Costa Rica (UNA), currently in the fourth year. I enjoy building technology solutions that have real impact on people.",
+    "leadHtml": "Completed Information Systems Engineering program at the National University of Costa Rica (UNA). I enjoy building technology solutions that have real impact on people, with hands-on experience in full-stack development and database design.",
     "educationTitle": "Education",
     "education": [
       {
         "institution": "National University (UNA)",
         "degree": "B.Sc. in Information Systems Engineering",
-        "period": "2022 – present"
+        "period": "2022 – 2025"
       },
       {
         "institution": "Liceo de Belén",
@@ -55,12 +55,20 @@
     "title": "Projects",
     "items": [
       {
+        "nombre": "ChatMessage – Real-Time Messaging",
+        "fecha": "2024",
+        "descripcion": "Real-time chat application with complete CI/CD. Configured pipelines with GitHub Actions, static code analysis and automated monitoring. Auth0 integration for secure authentication.",
+        "enlace": "https://chatmessage-q0jz.onrender.com/",
+        "github": "https://github.com/Josue2406/ChatMessage",
+        "tags": ["GitHub Actions", "CI/CD", "DevOps", "Monitoring", "Express.js", "Auth0"]
+      },
+      {
         "nombre": "Lanaku – Hotel Management (UNA)",
         "fecha": "2025 – present",
         "descripcion": "Academic backend for Front Desk, Reservations and Housekeeping. Stays, cleaning states, room assignment and reservation flow.",
         "enlace": "https://backendhotelt.onrender.com/",
         "github": "https://github.com/Josue2406/BackendHotelT.git",
-        "tags": ["NestJS", "TypeScript", "REST API"]
+        "tags": ["PHP", "Laravel", "REST API", "MySQL", "Eloquent ORM", "Docker", "Sanctum"]
       },
       {
         "nombre": "ZMTMN System – Citizens",
@@ -68,7 +76,7 @@
         "descripcion": "Citizen portal for Maritime–Terrestrial Zone procedures of the Municipality of Nicoya.",
         "enlace": "https://zmtmn-usuarios.municoya.go.cr/",
         "github": "https://github.com/DeptoZMTMN/Frontend-Usuarios.git",
-        "tags": ["React", "TypeScript", "Vite"]
+        "tags": ["React", "TypeScript", "Vite", "REST API", "NestJS", "JWT"]
       },
       {
         "nombre": "ZMTMN System – Admin",
@@ -76,7 +84,7 @@
         "descripcion": "Administrative dashboard to manage requests of the Maritime–Terrestrial Zone.",
         "enlace": "https://zmtmn-admin.municoya.go.cr/",
         "github": "https://github.com/DeptoZMTMN/Frontend-Administrativo.git",
-        "tags": ["React", "TypeScript", "Vite"]
+        "tags": ["React", "TypeScript", "Vite", "REST API", "NestJS", "JWT"]
       },
       {
         "nombre": "Car Workshop DB",
@@ -92,7 +100,7 @@
         "descripcion": "Orders, driver assignment and inventory management. Front + Backend.",
         "enlace": "",
         "github": "https://github.com/DannyJimenezA/aplicacion_abuelos_yupi.git",
-        "tags": ["Flutter", "Dart", "Backend"]
+        "tags": ["Flutter", "Dart", "NestJS", "REST API", "JWT"]
       }
     ],
     "labels": {
@@ -120,7 +128,8 @@
       "backend": "Backend",
       "databases": "Databases",
       "tools": "Developer tools",
-      "mobile": "Mobile"
+      "mobile": "Mobile",
+      "security": "Security & Authentication"
     }
   },
     "lang": {

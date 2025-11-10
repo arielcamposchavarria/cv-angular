@@ -1,31 +1,25 @@
-<section class="skills-3d">
+<section class="skills-carousel">
   <h1>{{ 'skills.title' | translate }}</h1>
 
-  <!-- Esfera 3D -->
-  <div class="stage">
-    <div
-      class="sphere"
-      [style.transform]="'rotateX(' + angleX + 'deg) rotateY(' + angleY + 'deg)'"
-      (pointerdown)="onPointerDown($event)"
-      (pointermove)="onPointerMove($event)"
-      (pointerup)="onPointerUp()"
-      (pointerleave)="onPointerUp()"
-    >
-      <div
-        class="logo3d"
-        *ngFor="let p of points; let i = index"
-        [style.transform]="'translate3d(' + p.x + 'px,' + p.y + 'px,' + p.z + 'px)'"
-        [style.zIndex]="Math.round(p.z) + 2000"
-        [style.filter]="depthFilter(p.z)"
-      >
-        <img [src]="flattened[i].logo" [alt]="flattened[i].nombre" draggable="false" />
+  <!-- Carrusel infinito de logos -->
+  <div class="carousel-container">
+    <div class="carousel-track" [class.paused]="!autoScroll">
+      <!-- Primera copia -->
+      <div class="logo-item" *ngFor="let tech of flattened">
+        <img [src]="tech.logo" [alt]="tech.nombre" draggable="false" />
+        <span class="logo-name">{{ tech.nombre }}</span>
+      </div>
+      <!-- Segunda copia para efecto infinito -->
+      <div class="logo-item" *ngFor="let tech of flattened">
+        <img [src]="tech.logo" [alt]="tech.nombre" draggable="false" />
+        <span class="logo-name">{{ tech.nombre }}</span>
       </div>
     </div>
-
-    <button class="floating-btn" (click)="toggleAuto()">
-      {{ autoRotate ? ('skills.buttons.pause' | translate) : ('skills.buttons.resume' | translate) }}
-    </button>
   </div>
+
+  <button class="floating-btn" (click)="toggleAutoScroll()">
+    {{ autoScroll ? ('skills.buttons.pause' | translate) : ('skills.buttons.resume' | translate) }}
+  </button>
 
   <div class="by-category">
     <div *ngFor="let categoria of skillsPorCategoria" class="skill-section">

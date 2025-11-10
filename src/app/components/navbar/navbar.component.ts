@@ -83,6 +83,8 @@ flagSrcSet(lang: 'es'|'en'|'pt') {
   // ===== Navegación / anclas =====
   toggleMenu(){ this.menuAbierto = !this.menuAbierto; }
 
+  closeMenu(){ this.menuAbierto = false; }
+
   goTo(id: string) {
     this.menuAbierto = false;
     if (!this.isBrowser) return;
@@ -106,7 +108,10 @@ flagSrcSet(lang: 'es'|'en'|'pt') {
     if (!container) this.showLang = false;
   }
   @HostListener('document:keydown.escape')
-  closeLangOnEsc() { this.showLang = false; }
+  closeLangOnEsc() {
+    this.showLang = false;
+    this.menuAbierto = false;
+  }
 
   ngAfterViewInit(){
     if (!this.isBrowser) return;

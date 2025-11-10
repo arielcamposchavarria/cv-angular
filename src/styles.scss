@@ -27,5 +27,33 @@
 }
 
 /* base */
-html, body{ background: var(--bg); color: var(--text); }
+html, body{
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  width: 100%;
+}
 a{ color: var(--accent); }
+
+/* Reset de márgenes para evitar overflow horizontal */
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/* Mejoras de accesibilidad y rendimiento */
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media (max-width: 768px){
+  input, select, textarea{
+    font-size: 16px;
+  }
+}

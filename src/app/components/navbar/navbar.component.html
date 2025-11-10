@@ -11,6 +11,11 @@
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
+    <!-- Overlay para cerrar el menú en móvil -->
+    @if (menuAbierto) {
+      <div class="menu-overlay" (click)="closeMenu()" aria-hidden="true"></div>
+    }
+
     <ul id="navlinks" [class.active]="menuAbierto">
       <li><a [class.active]="activeId==='inicio'"      (click)="goTo('inicio')">{{ 'nav.home'     | translate }}</a></li>
       <li><a [class.active]="activeId==='sobre-mi'"    (click)="goTo('sobre-mi')">{{ 'nav.about'    | translate }}</a></li>

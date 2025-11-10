@@ -1,63 +1,110 @@
-/* Contenedor general, fondo transparente, sin tarjetas ni marcos */
-.skills-3d {
-  padding: 3rem 1rem;
+/* Contenedor general */
+.skills-carousel {
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(0.75rem, 3vw, 1rem);
   text-align: center;
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    margin-bottom: clamp(1rem, 3vw, 2rem);
     color: var(--text);
+    word-break: break-word;
   }
 }
 
-/* Escenario con perspectiva para el 3D */
-.stage {
-  position: relative;
-  margin: 0 auto 2rem auto;
-  width: min(520px, 90vw);
-  height: min(520px, 90vw);
-  perspective: 1000px; /* clave para 3D */
-  touch-action: none;   /* para drags en móviles */
-}
-
-/* La esfera: preserva 3D y se rota completa (auto + manual) */
-.sphere {
+/* Contenedor del carrusel con overflow oculto */
+.carousel-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  cursor: grab;
-  will-change: transform;
-  transition: transform 0.02s linear;
+  max-width: 1400px;
+  margin: 0 auto 3rem auto;
+  overflow: hidden;
+  padding: 2rem 0;
 
-  &:active { cursor: grabbing; }
+  /* Gradientes laterales para efecto de fade */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg), transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg), transparent);
+  }
 }
 
-/* Cada logo “flota” en 3D */
-.logo3d {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-style: preserve-3d;
-  translate: -50% -50%;
-  will-change: transform, filter;
-  user-select: none;
+/* Track del carrusel con animación infinita */
+.carousel-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+
+  &.paused {
+    animation-play-state: paused;
+  }
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Animación que mueve exactamente el 50% (una copia completa) */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 2 - 1.5rem));
+  }
+}
+
+/* Cada item del logo */
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 100px;
+  flex-shrink: 0;
 
   img {
-    width: clamp(36px, 6vw, 64px);
-    height: clamp(36px, 6vw, 64px);
+    width: 64px;
+    height: 64px;
     object-fit: contain;
-    /* sombra suave dependiente del tema */
-    filter: drop-shadow(0 2px 6px color-mix(in oklab, var(--text) 25%, transparent));
-    pointer-events: none;
+    filter: drop-shadow(0 2px 6px color-mix(in oklab, var(--text) 20%, transparent));
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .logo-name {
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.8;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &:hover img {
+    transform: scale(1.15);
+    filter: drop-shadow(0 4px 12px color-mix(in oklab, var(--accent) 40%, transparent));
   }
 }
 
 /* Botón flotante */
 .floating-btn {
-  position: absolute;
-  inset: auto 0 -2.5rem 0;
-  margin: auto;
+  display: block;
+  margin: 0 auto 2rem auto;
   width: max-content;
   padding: .6rem 1rem;
   border: 1px solid var(--stroke);
@@ -77,17 +124,78 @@
   }
 }
 
+/* Responsive: logos más pequeños en móvil */
+@media (max-width: 768px) {
+  .logo-item {
+    min-width: 70px;
+
+    img {
+      width: 44px;
+      height: 44px;
+    }
+
+    .logo-name {
+      font-size: 0.72rem;
+    }
+  }
+
+  .carousel-track {
+    gap: 1.5rem;
+  }
+
+  .carousel-container {
+    padding: 1rem 0;
+
+    &::before,
+    &::after {
+      width: 40px;
+    }
+  }
+
+  .floating-btn{
+    font-size: .85rem;
+    padding: .55rem .9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-item {
+    min-width: 60px;
+
+    img {
+      width: 38px;
+      height: 38px;
+    }
+
+    .logo-name {
+      font-size: 0.68rem;
+    }
+  }
+
+  .carousel-track {
+    gap: 1.25rem;
+  }
+
+  .carousel-container {
+    &::before,
+    &::after {
+      width: 30px;
+    }
+  }
+}
+
 /* Listado por categorías (opcional, minimal sin marcos) */
 .by-category {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3vw, 1rem);
 
   .skill-section {
     margin: 1.5rem 0;
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
     margin-bottom: .5rem;
     text-align: left;
     color: var(--text);
@@ -99,16 +207,29 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: .75rem 1.25rem;
+    gap: .5rem .75rem;
 
     li {
-      font-size: .95rem;
+      font-size: clamp(.85rem, 2.5vw, .95rem);
       color: var(--text);
       background: var(--chip-bg);
       border: 1px solid var(--stroke);
       padding: .3rem .6rem;
       border-radius: .5rem;
       white-space: nowrap;
+    }
+  }
+}
+
+@media (max-width: 768px){
+  .by-category{
+    .tech-list{
+      gap: .4rem .6rem;
+
+      li{
+        font-size: .82rem;
+        padding: .25rem .5rem;
+      }
     }
   }
 }

@@ -1,20 +1,15 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  OnDestroy,
   Inject,
-  NgZone,
-  PLATFORM_ID,
-  HostListener
+  PLATFORM_ID
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 interface Tech { nombre: string; logo: string; descripcion?: string; }
-type CategoryKey = 'frontend'|'backend'|'databases'|'tools'|'mobile';
+type CategoryKey = 'frontend'|'backend'|'databases'|'tools'|'mobile'|'security';
 interface Category { key: CategoryKey; tecnologias: Tech[]; }
-interface Point3D { x: number; y: number; z: number; }
 
 @Component({
   selector: 'app-skills',
@@ -23,7 +18,7 @@ interface Point3D { x: number; y: number; z: number; }
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SkillsComponent implements OnInit {
   // ------- datos -------
   skillsPorCategoria: Category[] = [
     {
@@ -72,152 +67,30 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
         { nombre: 'Flutter', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
         { nombre: 'Dart',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' }
       ]
+    },
+    {
+      key: 'security',
+      tecnologias: [
+        { nombre: 'Auth0',   logo: 'https://cdn.auth0.com/styleguide/components/1.0.8/media/logos/img/badge.png' },
+        { nombre: 'Sanctum', logo: 'https://laravel.com/img/logomark.min.svg' },
+        { nombre: 'JWT',     logo: 'https://cdn.worldvectorlogo.com/logos/jwt-3.svg' }
+      ]
     }
   ];
 
-  // ------- esfera 3D -------
+  // ------- carrusel infinito -------
   flattened: Tech[] = [];
-  points: Point3D[] = [];
-  Math = Math;               // para usar Math.round en el template
-
-  radius = 200;              // radio (px) - se recalcula según viewport
-  autoRotate = true;         // giro automático
-  angleX = 0;                // rotación actual X (deg)
-  angleY = 0;                // rotación actual Y (deg)
-
-  private rafId?: number;    // id de requestAnimationFrame
-  private lastTs = 0;        // timestamp previo
-  private dragging = false;
-  private lastX = 0;
-  private lastY = 0;
-  private velX = 0;          // inercia
-  private velY = 0;
+  autoScroll = true;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private ngZone: NgZone
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
     this.flattened = this.skillsPorCategoria.flatMap(c => c.tecnologias);
-    this.setRadiusFromViewport();
-    this.points = this.fibonacciSphere(this.flattened.length, this.radius);
   }
 
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.ngZone.runOutsideAngular(() => {
-        this.loop(0);
-      });
-    }
-  }
-
-  ngOnDestroy(): void {
-    if (typeof cancelAnimationFrame !== 'undefined' && this.rafId) {
-      cancelAnimationFrame(this.rafId);
-    }
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    if (!isPlatformBrowser(this.platformId)) return;
-    const old = this.radius;
-    this.setRadiusFromViewport();
-    if (this.radius !== old) {
-      // Recalcular posiciones con el nuevo radio
-      this.points = this.fibonacciSphere(this.flattened.length, this.radius);
-    }
-  }
-
-  private setRadiusFromViewport() {
-    // Radios más pequeños en pantallas chicas (mejor FPS)
-    if (!isPlatformBrowser(this.platformId)) return;
-    const vw = Math.min(window.innerWidth, window.innerHeight);
-    this.radius = vw >= 900 ? 220 : vw >= 600 ? 180 : 140;
-  }
-
-  private loop = (ts: number) => {
-    const dt = Math.min(32, ts - this.lastTs);
-    this.lastTs = ts;
-
-    // giro automático
-    if (this.autoRotate && !this.dragging) {
-      this.angleY += 0.02 * dt; // ~0.64deg/s
-    }
-
-    // inercia post-arrastre
-    if (!this.dragging) {
-      this.angleX += this.velX;
-      this.angleY += this.velY;
-      this.velX *= 0.95;
-      this.velY *= 0.95;
-      if (Math.abs(this.velX) < 0.001) this.velX = 0;
-      if (Math.abs(this.velY) < 0.001) this.velY = 0;
-    }
-
-    // límites de inclinación en X
-    this.angleX = Math.max(-80, Math.min(80, this.angleX));
-
-    // siguiente frame en navegador
-    if (typeof requestAnimationFrame !== 'undefined') {
-      this.rafId = requestAnimationFrame(this.loop);
-    }
-  };
-
-  toggleAuto() { this.autoRotate = !this.autoRotate; }
-
-  onPointerDown(e: PointerEvent) {
-    this.dragging = true;
-    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-    this.lastX = e.clientX;
-    this.lastY = e.clientY;
-    this.autoRotate = false; // pausa auto-rotate al arrastrar
-    this.velX = 0; this.velY = 0;
-  }
-
-  onPointerMove(e: PointerEvent) {
-    if (!this.dragging) return;
-    const dx = e.clientX - this.lastX;
-    const dy = e.clientY - this.lastY;
-    this.lastX = e.clientX;
-    this.lastY = e.clientY;
-
-    const k = 0.2; // sensibilidad
-    this.angleY += dx * k;
-    this.angleX -= dy * k;
-
-    // inercia
-    this.velY = dx * k * 0.05;
-    this.velX = -dy * k * 0.05;
-  }
-
-  onPointerUp() {
-    this.dragging = false;
-    // Si quieres reanudar auto-rotate al soltar:
-    // this.autoRotate = true;
-  }
-
-  // Distribución “Fibonacci sphere”
-  private fibonacciSphere(n: number, r: number): Point3D[] {
-    const pts: Point3D[] = [];
-    if (n <= 1) return [{ x: 0, y: 0, z: 0 }];
-
-    const phi = Math.PI * (3 - Math.sqrt(5)); // ángulo dorado
-    for (let i = 0; i < n; i++) {
-      const y = 1 - (i / (n - 1)) * 2; // 1..-1
-      const radius = Math.sqrt(1 - y * y);
-      const theta = phi * i;
-      const x = Math.cos(theta) * radius;
-      const z = Math.sin(theta) * radius;
-      pts.push({ x: x * r, y: y * r, z: z * r });
-    }
-    return pts;
-  }
-
-  // Efecto de profundidad: logos al fondo más oscuros
-  depthFilter(z: number) {
-    const t = (z + this.radius) / (2 * this.radius); // 0..1
-    const brightness = 0.75 + t * 0.3;               // 0.75..1.05 aprox
-    return `brightness(${brightness})`;
+  toggleAutoScroll() {
+    this.autoScroll = !this.autoScroll;
   }
 }

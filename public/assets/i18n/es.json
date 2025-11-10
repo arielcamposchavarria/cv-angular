@@ -2,7 +2,7 @@
   "home": {
     "hello": "Hola, soy",
     "subtitle": "Ingeniero en Software   |   Desarrollador Full-stack",
-    "leadHtml": "Apasionado por la tecnología y el desarrollo web y móvil. Experiencia con <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>php</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> y <strong>MySQL</strong>. Actualmente cursando el 4° año en la UNA.",
+    "leadHtml": "Apasionado por la tecnología y el desarrollo web y móvil con experiencia comprobada en la entrega de soluciones reales. Dominio de <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>PHP</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> y <strong>MySQL</strong>. Enfocado en construir aplicaciones escalables e impactantes.",
     "chips": ["Full-stack", "REST APIs", "SQL", "Móvil"],
     "downloadCv": "Descargar CV",
     "backToTop": "Volver arriba"
@@ -10,13 +10,13 @@
   
   "about": {
     "title": "Sobre mí",
-    "leadHtml": "Estudiante de Ingeniería en Sistemas de Información en la Universidad Nacional de Costa Rica (UNA), actualmente en cuarto año. Me apasiona crear soluciones tecnológicas con impacto real en las personas.",
+    "leadHtml": "Completé el programa de Ingeniería en Sistemas de Información en la Universidad Nacional de Costa Rica (UNA). Me apasiona crear soluciones tecnológicas con impacto real en las personas, con experiencia práctica en desarrollo full-stack y diseño de bases de datos.",
     "educationTitle": "Formación académica",
     "education": [
       {
         "institution": "Universidad Nacional (UNA)",
         "degree": "Ingeniería en Sistemas de Información",
-        "period": "2022 – presente"
+        "period": "2022 – 2025"
       },
       {
         "institution": "Liceo de Belén",
@@ -55,12 +55,20 @@
     "title": "Proyectos",
     "items": [
       {
+        "nombre": "ChatMessage – Mensajería en Tiempo Real",
+        "fecha": "2024",
+        "descripcion": "Aplicación de chat en tiempo real con CI/CD completo. Configuración de pipelines con GitHub Actions, análisis estático de código y monitoreo automatizado. Integración con Auth0 para autenticación segura.",
+        "enlace": "https://chatmessage-q0jz.onrender.com/",
+        "github": "https://github.com/Josue2406/ChatMessage",
+        "tags": ["GitHub Actions", "CI/CD", "DevOps", "Monitoring", "Express.js", "Auth0"]
+      },
+      {
         "nombre": "Lanaku – Gestión Hotelera (UNA)",
         "fecha": "2025 – presente",
         "descripcion": "Backend académico para la gestión de Front Desk, Reservas y Housekeeping. Control de estadías, estados de limpieza, asignación de habitaciones y flujo de reservas.",
         "enlace": "https://backendhotelt.onrender.com/",
         "github": "https://github.com/Josue2406/BackendHotelT.git",
-        "tags": ["NestJS", "TypeScript", "REST API"]
+        "tags": ["PHP", "Laravel", "REST API", "MySQL", "Eloquent ORM", "Docker", "Sanctum"]
       },
       {
         "nombre": "Sistema ZMTMN – Usuarios",
@@ -68,7 +76,7 @@
         "descripcion": "Portal ciudadano para trámites de Zona Marítimo Terrestre de la Municipalidad de Nicoya.",
         "enlace": "https://zmtmn-usuarios.municoya.go.cr/",
         "github": "https://github.com/DeptoZMTMN/Frontend-Usuarios.git",
-        "tags": ["React", "TypeScript", "Vite"]
+        "tags": ["React", "TypeScript", "Vite", "REST API", "NestJS", "JWT"]
       },
       {
         "nombre": "Sistema ZMTMN – Administradores",
@@ -76,7 +84,7 @@
         "descripcion": "Dashboard administrativo para la gestión de solicitudes de Zona Marítimo Terrestre.",
         "enlace": "https://zmtmn-admin.municoya.go.cr/",
         "github": "https://github.com/DeptoZMTMN/Frontend-Administrativo.git",
-        "tags": ["React", "TypeScript", "Vite"]
+        "tags": ["React", "TypeScript", "Vite", "REST API", "NestJS", "JWT"]
       },
       {
         "nombre": "BD Taller Mecánico",
@@ -92,7 +100,7 @@
         "descripcion": "Pedidos, asignación a repartidor y gestión de inventario. Front + Backend.",
         "enlace": "",
         "github": "https://github.com/DannyJimenezA/aplicacion_abuelos_yupi.git",
-        "tags": ["Flutter", "Dart", "Backend"]
+        "tags": ["Flutter", "Dart", "NestJS", "REST API", "JWT"]
       }
     ],
     "labels": {
@@ -120,7 +128,8 @@
       "backend": "Backend",
       "databases": "Bases de datos",
       "tools": "Herramientas de desarrollo",
-      "mobile": "Móvil"
+      "mobile": "Móvil",
+      "security": "Seguridad y Autenticación"
     }
   },
     "lang": {

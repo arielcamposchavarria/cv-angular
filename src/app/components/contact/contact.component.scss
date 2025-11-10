@@ -67,11 +67,11 @@
 .contact-card {
   list-style: none;
   padding: 0;
-  margin: 2rem auto;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 2.5vw, 1.5rem);
 
   li {
     display: flex;
@@ -85,6 +85,8 @@
       color: var(--accent);
       font-weight: 500;
       text-decoration: none;
+      font-size: clamp(.85rem, 2.5vw, .95rem);
+      word-break: break-all;
 
       &:hover {
         text-decoration: underline;
@@ -97,8 +99,9 @@
       }
 
       img {
-        width: 20px;
-        height: 20px;
+        width: clamp(18px, 4vw, 20px);
+        height: clamp(18px, 4vw, 20px);
+        flex-shrink: 0;
         filter: grayscale(1);
         transition: filter 0.3s ease;
       }
@@ -109,10 +112,17 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
+    gap: 0.6rem;
+
     li {
-      flex-direction: column;
-      align-items: flex-start;
+      width: 100%;
+      max-width: 100%;
+
+      a{
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
   }
 }
