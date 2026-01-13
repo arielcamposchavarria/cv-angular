@@ -16,15 +16,15 @@
         "institution": "Universidade Nacional (UNA)",
         "degree": "Engenharia de Sistemas de Informação",
         "period": "2022 – 2025"
-      },
-      {
-        "institution": "Liceo de Belén",
-        "degree": "Ensino Médio",
-        "period": "2021"
       }
     ],
     "certsTitle": "Certificações",
     "certs": [
+      {
+        "name": "Claude Code in Action",
+        "issuer": "Anthropic",
+        "year": "2025"
+      },
       {
         "name": "Scrum Fundamentals Certified (SFC)",
         "issuer": "CertiProf",
