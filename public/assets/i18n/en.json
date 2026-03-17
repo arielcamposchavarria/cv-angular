@@ -101,6 +101,22 @@
         "enlace": "",
         "github": "https://github.com/DannyJimenezA/aplicacion_abuelos_yupi.git",
         "tags": ["Flutter", "Dart", "NestJS", "REST API", "JWT"]
+      },
+      {
+        "nombre": "CCCBR Marketplace – Real Estate Management",
+        "fecha": "2026",
+        "descripcion": "Real estate platform developed for the Costa Rica Real Estate Brokers Chamber. Brokers publish properties for sale and clients can browse listings and directly contact the broker of their choice.",
+        "enlace": "https://cccbr-clasificados.vercel.app/",
+        "github": "https://github.com/arielcamposchavarria/CCCBR-Clasificados.git",
+        "tags": ["NestJS", "VueJs", "REST API", "NuxtJs", "TypeScript"]
+      },
+      {
+        "nombre": "MundoCar – Vehicle Marketplace",
+        "fecha": "2025",
+        "descripcion": "Central American marketplace for new and used cars and trucks. Sellers list their vehicles and buyers can browse the catalog and contact sellers directly.",
+        "enlace": "https://mundocar-c9egh5f5hrhxaecn.centralus-01.azurewebsites.net/",
+        "github": "https://github.com/Orbitas-Software-Development/mundo-car.git",
+        "tags": ["C#", "ASP.NET", "React", "TypeScript", "REST API", "Azure"]
       }
     ],
     "labels": {
