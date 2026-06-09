@@ -106,15 +106,23 @@
         "nombre": "CCCBR Marketplace – Real Estate Management",
         "fecha": "2026",
         "descripcion": "Real estate platform developed for the Costa Rica Real Estate Brokers Chamber. Brokers publish properties for sale and clients can browse listings and directly contact the broker of their choice.",
-        "enlace": "https://cccbr-clasificados.vercel.app/",
+        "enlace": "cccbr-marketplace-cqf0b6bqbhedbbhh.canadacentral-01.azurewebsites.net/",
         "github": "https://github.com/arielcamposchavarria/CCCBR-Clasificados.git",
         "tags": ["NestJS", "VueJs", "REST API", "NuxtJs", "TypeScript"]
       },
       {
-        "nombre": "MundoCar – Vehicle Marketplace",
+        "nombre": "CCCBR PropertyManager – Real Estate Management",
+        "fecha": "2026",
+        "descripcion": "Exclusive platform for licensed brokers of the Costa Rica Real Estate Brokers Chamber (CCCBR). Brokers manage their property inventory, form alliances, communicate with other members, and share listings — all within a private, members-only environment.",
+        "enlace": "cccbrpropertymanager-dxgucjhhdqg7evff.centralus-01.azurewebsites.net/",
+        "github": "https://github.com/Orbitas-Software-Development/CCCBR-PropertyManager.git",
+        "tags": ["NestJS", "VueJs", "REST API", "NuxtJs", "TypeScript"]
+      },
+      {
+        "nombre": "Oferautos – Vehicle Marketplace",
         "fecha": "2025",
         "descripcion": "Central American marketplace for new and used cars and trucks. Sellers list their vehicles and buyers can browse the catalog and contact sellers directly.",
-        "enlace": "https://mundocar-c9egh5f5hrhxaecn.centralus-01.azurewebsites.net/",
+        "enlace": "https://mundocar-c9egh5f5hrhxaecn.canadacentral-01.azurewebsites.net/",
         "github": "https://github.com/Orbitas-Software-Development/mundo-car.git",
         "tags": ["C#", "ASP.NET", "React", "TypeScript", "REST API", "Azure"]
       }

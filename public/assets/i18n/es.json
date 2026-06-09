@@ -111,10 +111,18 @@
         "tags": ["NestJS", "VueJs", "REST API", "NuxtJs", "TypeScript"]
       },
       {
-        "nombre": "MundoCar – Marketplace de Vehículos",
+        "nombre": "CCCBR PropertyManager – Gestión Inmobiliaria",
+        "fecha": "2026",
+        "descripcion": "Plataforma exclusiva para corredores habilitados de la Cámara de Corredores de Bienes Raíces de Costa Rica (CCCBR). Los corredores gestionan su inventario de propiedades, forman alianzas, se comunican con otros miembros y comparten listados, todo dentro de un entorno privado y exclusivo para miembros.",
+        "enlace": "cccbrpropertymanager-dxgucjhhdqg7evff.centralus-01.azurewebsites.net/",
+        "github": "https://github.com/Orbitas-Software-Development/CCCBR-PropertyManager.git",
+        "tags": ["NestJS", "VueJs", "REST API", "NuxtJs", "TypeScript"]
+      },
+      {
+        "nombre": "Oferautos – Marketplace de Vehículos",
         "fecha": "2025",
         "descripcion": "Marketplace de vehículos y camiones nuevos y usados a nivel centroamericano. Los vendedores publican sus vehículos y los compradores pueden explorar el catálogo y contactar directamente al vendedor.",
-        "enlace": "https://mundocar-c9egh5f5hrhxaecn.centralus-01.azurewebsites.net/",
+        "enlace": "https://mundocar-c9egh5f5hrhxaecn.canadacentral-01.azurewebsites.net/",
         "github": "https://github.com/Orbitas-Software-Development/mundo-car.git",
         "tags": ["C#", "ASP.NET", "React", "TypeScript", "REST API", "Azure"]
       }
