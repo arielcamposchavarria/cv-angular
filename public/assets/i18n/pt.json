@@ -2,14 +2,14 @@
   "home": {
     "hello": "Olá, sou",
     "subtitle": "Engenheiro de Software   |   Desenvolvedor Full-stack",
-    "leadHtml": "Apaixonado por tecnologia e desenvolvimento web e mobile com experiência comprovada na entrega de soluções reais. Proficiente em <strong>C#</strong>, <strong>React + TypeScript</strong>, <strong>Angular</strong>, <strong>NestJS</strong>, <strong>PHP</strong>, <strong>Laravel</strong>, <strong>JavaScript</strong>, <strong>Flutter</strong>, <strong>ASP.NET</strong> e <strong>MySQL</strong>. Focado em construir aplicações escaláveis e impactantes.",
+    "leadHtml": "Desenvolvedor Full-stack com experiência prática em toda a stack, do design de banco de dados à interface do usuário. Trabalho com <strong>C#/.NET</strong>, <strong>PHP/Laravel</strong> e <strong>Node.js</strong> no back-end, e <strong>React</strong>, <strong>Angular</strong>, <strong>Next.js</strong> e <strong>TypeScript</strong> no front-end, além de experiência com <strong>Oracle APEX</strong>, <strong>Oracle DB</strong> e <strong>MySQL</strong>. Já liderei projetos e orientei estagiários e desenvolvedores júnior, sempre focado em construir aplicações escaláveis e de fácil manutenção.",
     "chips": ["Full-stack", "REST APIs", "SQL", "Mobile"],
     "downloadCv": "Baixar CV",
     "backToTop": "Voltar ao topo"
   },
   "about": {
     "title": "Sobre mim",
-    "leadHtml": "Concluí o programa de Engenharia de Sistemas de Informação na Universidade Nacional da Costa Rica (UNA). Tenho paixão por criar soluções tecnológicas com impacto real nas pessoas, com experiência prática em desenvolvimento full-stack e design de banco de dados.",
+    "leadHtml": "Graduado em Engenharia de Sistemas de Informação (Bacharelado) pela Universidade Nacional da Costa Rica (UNA). Já colaborei no desenvolvimento de múltiplos sistemas de software, trabalhando lado a lado com clientes e equipes multidisciplinares sob metodologias ágeis como Scrum. Já liderei vários desses projetos e capacitei desenvolvedores entry-level e estagiários em seu crescimento técnico. Gosto de escrever código limpo e de fácil manutenção, e busco sempre novos desafios para continuar crescendo como desenvolvedor full-stack.",
     "educationTitle": "Formação acadêmica",
     "education": [
       {
